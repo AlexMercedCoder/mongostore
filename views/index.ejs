@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+        <% include ./partials/head.ejs %>
+    </head>
+
+
+    <!-- THE BODY OF THE WEBSITE -->
+    <body>
+
+        <header>
+            <% include ./partials/header.ejs %>
+        </header>
+
+
+
+
+
+<!-- CONTENT OF PAGE BEGINS -->
+        <main>
+
+            <div class="container">
+
+                <% for (prod in data){%>
+                <div class="productcont">
+
+                    <p><%= data[prod].name %></p>
+                    <span>$<%= data[prod].price %></span>
+
+                    <a href="/store/<%=data[prod].id%>"><img src='<%=data[prod].img%>'/></a>
+                    <%if (data[prod].qty > 0) {%>
+                    <form action="/purchase/<%=data[prod].id %>/<%=data[prod].qty-1%>?_method=patch" method="POST">
+                    <input type="submit" value="Buy"/>
+                    </form>
+                    <%}%>
+
+                </div>
+
+                <%}%>
+
+            </div>
+
+
+
+        </main>
+<!-- CONTENT OF PAGE ENDS -->
+
+
+
+
+
+
+
+        <footer>
+            <% include ./partials/footer.ejs %>
+        </footer>
+
+
+    </body>
+    <!-- END OF THE HTML FILE -->
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+        <% include ./partials/head.ejs %>
+    </head>
+
+
+    <!-- THE BODY OF THE WEBSITE -->
+    <body>
+
+        <header>
+            <% include ./partials/header.ejs %>
+        </header>
+
+
+
+
+
+<!-- CONTENT OF PAGE BEGINS -->
+        <main>
+
+
+
+                <div class="container">
+
+                    <form action="/store/<%=data.id%>?_method=PUT" method="POST">
+
+                        Name: <input type="text" name="name" value="<%=data.name%>"/><br/>
+                        <textarea name="description"><%=data.description%></textarea><br/>
+                        Image URL: <input type="text" name="img" value="<%=data.img%>" /><br/>
+                        Price: <input type="number" name="price" value="<%=data.price%>"/><br/>
+                        Quantity: <input type="number" name="qty" value="<%=data.qty%>"/><br/>
+
+                        <input type="submit" name="" value="Edit Product"/>
+                    </form>
+
+                </div>
+
+
+            </div>
+
+
+
+        </main>
+<!-- CONTENT OF PAGE ENDS -->
+
+
+
+
+
+
+
+        <footer>
+            <% include ./partials/footer.ejs %>
+        </footer>
+
+
+    </body>
+    <!-- END OF THE HTML FILE -->
+
+</html>

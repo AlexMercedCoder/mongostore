@@ -1,0 +1,64 @@
+* {margin: 0; padding: 0; box-sizing: border-box;}
+
+:root {
+    --bg: #dad2d8;
+    --fg: #5B0400;
+    --accent: #EF7A85;
+    --text: 'Jomolhari', serif;
+    --titles: 'Darker Grotesque', sans-serif;
+}
+
+body {width:90%; padding: 10px;
+    font-family: var(--text);
+    background-color: var(--bg);
+    color: #5B0400; margin: 0 auto;}
+
+.container {display: flex; width: 80%; justify-content: space-around; flex-wrap: wrap; margin: 20px auto;}
+
+.productcont {display: flex; flex-direction: column; background-color: var(--fg); color: var(--bg); padding: 10px; border-radius: 20px; border: 2px solid var(--accent); margin: 10px;}
+
+.productcont img {height: 200px; width: 200px; border: 4px solid var(--accent); border-radius: 20px;}
+
+.productcont p {font-size: 1.2em; font-family: var(--titles); margin: 5px 0;}
+
+.productcont span {margin: 5px 0;}
+
+nav {background-color: var(--fg); color: var(--bg);}
+
+.logo {font-size: 2em; font-family: var(--titles); margin: 5px;}
+
+nav p {display: flex; justify-content: space-around; flex-wrap: wrap; margin: 5px;}
+
+nav a {color: var(--bg); text-decoration: none; text-transform: uppercase; transform: 2s;}
+
+nav a:hover {background-color: var(--bg); color: var(--fg); }
+
+.showprod {margin: 0 auto; background-color: var(--fg); color: var(--bg); padding: 25px; border-radius: 20px; border: 4px solid var(--accent);text-align: center;}
+
+.showprod img {width: 300px; height: 300px; border-radius: 20px;}
+
+.showprod p {margin: 10px;}
+
+.showprod span {font-weight: 900;}
+
+.button, input, textarea {padding: 7px; background-color: var(--bg); color: var(--fg); border-radius: 5px; margin-top: 10px; cursor: pointer; text-decoration: none;}
+
+textarea {width: 300px; display: block; resize: vertical;}
+
+.button:hover, input:hover, textarea:hover {background-color:var(--fg);color:var(--bg)}
+
+.container input {
+  width: 100%;
+  clear: both;
+}
+
+.sandwhich {display:none;}
+
+
+
+@media only screen and (max-width: 600px) {
+  .sandwhich {display: inline; float: right; margin-right: 20px; margin-top: 5px;}
+  .menu {display: none;}
+  .menu a {display: block; text-align: center;}
+  nav h1
+}
