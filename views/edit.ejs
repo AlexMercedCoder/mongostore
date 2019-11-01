@@ -31,8 +31,18 @@
                         Image URL: <input type="text" name="img" value="<%=data.img%>" /><br/>
                         Price: <input type="number" name="price" value="<%=data.price%>"/><br/>
                         Quantity: <input type="number" name="qty" value="<%=data.qty%>"/><br/>
+                        Password: <input type="password" name="pw"/><br/>
 
                         <input type="submit" name="" value="Edit Product"/>
+                        </form>
+
+                        <form action="/store/<%=data.id%>?_method=DELETE" method="POST">
+
+                        Password: <input type="password" name="pw"/><br/>
+
+    				    <input type="submit" value="DELETE"/>
+
+
                     </form>
 
                 </div>

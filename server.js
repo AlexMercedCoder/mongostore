@@ -76,9 +76,13 @@ app.get('/store/', (request, response) => {
 //Create Routes
 /////////////////////
 app.post('/store/', (req, res) => {
+    if (req.body.pw === process.env.PW){
     Products.create(req.body, (error, created)=>{
         res.redirect('/store');
-    });
+    });}else{
+        console.log('wrong password');
+        res.redirect('/store');
+    }
 });
 
 app.get('/store/new', (req, res) => {
@@ -104,9 +108,15 @@ app.get('/store/:indexOf', function(req, res){
 //Delete Route
 /////////////////////
 app.delete('/store/:indexOf', (req, res) => {
+    console.log(req.params.indexOf)
+    if (req.body.pw === process.env.PW){
     Products.findByIdAndRemove(req.params.indexOf, (err, data)=>{
         res.redirect('/store');
     });
+        }else{
+        console.log('wrong password');
+        res.redirect('/store');
+        }
 });
 
 /////////////////////
@@ -126,9 +136,13 @@ app.get('/store/:indexOf/edit', (req, res)=>{
 });
 
 app.put('/store/:indexOf', (req, res) => {
+    if (req.body.pw === process.env.PW){
     Products.findByIdAndUpdate(req.params.indexOf, req.body, {new:true}, (err, updatedModel)=>{
         res.redirect('/store');
-    });
+    });}else{
+        console.log('wrong password');
+        res.redirect('/store');
+    }
 });
 
 app.patch('/purchase/:indexOf/:newqty', (req, res) => {
@@ -138,35 +152,3 @@ app.patch('/purchase/:indexOf/:newqty', (req, res) => {
         res.redirect('/store');
     });
 });
-
-// app.get('/seed', async (req, res) => {
-//   const newProducts =
-//     [
-//       {
-//         name: 'Beans',
-//         description: 'A small pile of beans. Buy more beans for a big pile of beans.',
-//         img: 'https://imgur.com/LEHS8h3.png',
-//         price: 5,
-//         qty: 99
-//       }, {
-//         name: 'Bones',
-//         description: 'It\'s just a bag of bones.',
-//         img: 'https://imgur.com/dalOqwk.png',
-//         price: 25,
-//         qty: 0
-//       }, {
-//         name: 'Bins',
-//         description: 'A stack of colorful bins for your beans and bones.',
-//         img: 'https://imgur.com/ptWDPO1.png',
-//         price: 7000,
-//         qty: 1
-//       }
-//     ]
-//
-//   try {
-//     const seedItems = await Products.create(newProducts)
-//     res.send(seedItems)
-//   } catch (err) {
-//     res.send(err.message)
-//   }
-// })
